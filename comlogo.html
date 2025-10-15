@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HERE 4 YOU - Professional Cleaning Services | Contra Costa County</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* CORES ALINHADAS COM A LOGO (AZUL E ROXO) */
+            --primary-color: #3b52a4; /* Azul escuro do texto "Here 4 You" */
+            --secondary-color: #6a5acd; /* Roxo/azul claro da borda */
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --accent: #f59e0b; /* Amarelo/Âmbar (Mantido para CTAs) */
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2a3c7a 100%);
+            color: white;
+            padding: 10px 0; /* Ajustado para dar espaço à logo */
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            /* Estilo do Logo como texto (Original) */
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            display: none; /* Esconder o texto para usar a imagem */
+        }
+        
+        /* NOVO ESTILO PARA O LOGO EM IMAGEM */
+        .logo-img {
+            height: 60px; /* Tamanho da logo na navbar */
+            width: auto;
+            max-height: 60px; 
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .header-cta {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .phone-number {
+            font-size: 20px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Hero Section */
+        .hero {
+            /* Gradiente atualizado com as novas cores */
+            background: linear-gradient(135deg, rgba(59, 82, 164, 0.95) 0%, rgba(42, 60, 122, 0.95) 100%),
+                        url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            padding: 180px 0 120px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(245, 158, 11, 0.2) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 2px 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .hero h1 .highlight {
+            color: var(--accent);
+            display: block;
+        }
+
+        .hero p {
+            font-size: 24px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 18px 40px;
+            font-size: 18px;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #ea580c;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(245, 158, 11, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--light);
+            transform: translateY(-3px);
+        }
+
+        /* Trust Badges */
+        .trust-badges {
+            background: white;
+            padding: 40px 0;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
+        }
+
+        .badges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .badge {
+            padding: 20px;
+        }
+
+        .badge-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .badge h3 {
+            color: var(--primary-color);
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .badge p {
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background: var(--light);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            font-size: 20px;
+            color: #64748b;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            /* Sombra atualizada com a nova cor primária */
+            box-shadow: 0 20px 60px rgba(59, 82, 164, 0.15);
+            border-color: var(--primary-color);
+        }
+
+        .service-icon {
+            font-size: 56px;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: #64748b;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .service-features li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #475569;
+        }
+
+        .service-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color); /* Usando a nova cor secundária */
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .service-cta {
+            display: inline-block;
+            color: var(--primary-color);
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .service-cta:hover {
+            color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        /* Why Choose Us */
+        .why-choose {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            /* Gradiente atualizado com as novas cores */
+            background: linear-gradient(135deg, var(--primary-color), #2a3c7a);
+            color: white;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            margin: 0 auto 25px;
+            /* Sombra atualizada com a nova cor primária */
+            box-shadow: 0 10px 30px rgba(59, 82, 164, 0.3);
+        }
+
+        .feature h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .feature p {
+            color: #64748b;
+            line-height: 1.8;
+        }
+
+        /* Social Proof */
+        .social-proof {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            font-size: 100px;
+            color: var(--primary-color);
+            opacity: 0.1;
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-family: Georgia, serif;
+        }
+
+        .stars {
+            color: var(--accent);
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .testimonial p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #475569;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            /* Gradiente atualizado com as novas cores */
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .author-info h4 {
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .author-info p {
+            font-size: 14px;
+            color: #64748b;
+            margin: 0;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            /* Gradiente atualizado com as novas cores */
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2a3c7a 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: moveBackground 20s linear infinite;
+        }
+
+        @keyframes moveBackground {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2 {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 22px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .urgency-text {
+            display: inline-block;
+            background: rgba(245, 158, 11, 0.2);
+            padding: 15px 30px;
+            border-radius: 50px;
+            margin-bottom: 30px;
+            font-weight: 700;
+            border: 2px solid var(--accent);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-top: 60px;
+        }
+
+        .contact-info {
+            padding: 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding: 25px;
+            background: var(--light);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: #e0f2fe;
+            transform: translateX(10px);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            /* Gradiente atualizado com as novas cores */
+            background: linear-gradient(135deg, var(--primary-color), #2a3c7a);
+            color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .contact-details h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+
+        .contact-details p {
+            color: #64748b;
+            font-size: 16px;
+        }
+
+        .contact-details a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-details a:hover {
+            color: var(--accent);
+        }
+
+        .contact-form {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(59, 82, 164, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            /* Gradiente atualizado com as novas cores */
+            background: linear-gradient(135deg, var(--primary-color), #2a3c7a);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            /* Sombra atualizada com a nova cor primária */
+            box-shadow: 0 15px 40px rgba(59, 82, 164, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .services-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .header-cta {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .phone-number {
+                font-size: 16px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Floating Action Button */
+        .fab {
+            position: fixed;
+            bottom: 33px; /* Ajustado para melhor visualização */
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            /* Cor do FAB ajustada para a cor secundária */
+            background: linear-gradient(135deg, var(--secondary-color), #5e4bb4);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            /* Sombra atualizada com a nova cor secundária */
+            box-shadow: 0 10px 30px rgba(106, 90, 205, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 999;
+            text-decoration: none;
+        }
+
+        .fab:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(106, 90, 205, 0.6);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="logo-navbar.jpg" alt="Logo HERE 4 YOU" class="logo-img">
+                <div class="logo">
+                    HERE <span>4</span> YOU
+                </div>
+                <div class="header-cta">
+                    <a href="tel:5106001381" style="text-decoration: none; color: white;">
+                        <div class="phone-number">
+                            📞 (510) 600-1381
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content animate-in">
+                <h1>
+                    Sparkling Clean Homes.
+                    <span class="highlight">Guaranteed Results.</span>
+                </h1>
+                <p>Premium Cleaning Services for Homes & Businesses in Contra Costa County</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        Get FREE Quote →
+                    </a>
+                    <a href="tel:5106001381" class="btn btn-secondary">
+                        📞 Call Now (510) 600-1381
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="trust-badges">
+        <div class="container">
+            <div class="badges-grid">
+                <div class="badge">
+                    <div class="badge-icon">🛡️</div>
+                    <h3>Fully Insured</h3>
+                    <p>Liability Insurance</p>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon">⭐</div>
+                    <h3>5-Star Rated</h3>
+                    <p>100% Satisfaction</p>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon">💯</div>
+                    <h3>Money Back</h3>
+                    <p>Quality Guarantee</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Professional Cleaning Services</h2>
+                <p>We don't just clean. We transform your space into a sanctuary.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏠</div>
+                    <h3>Residential & Commercial Cleaning</h3>
+                    <p>Whether it's your home or office, we deliver spotless results that exceed expectations.</p>
+                    <ul class="service-features">
+                        <li>Regular weekly/bi-weekly service</li>
+                        <li>All rooms thoroughly cleaned</li>
+                        <li>Kitchen & bathroom deep sanitization</li>
+                        <li>Flexible scheduling options</li>
+                    </ul>
+                    <a href="#contact" class="service-cta">Get Quote →</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">✨</div>
+                    <h3>Deep Cleaning</h3>
+                    <p>The ultimate cleaning experience. Every corner, every surface, every detail perfected.</p>
+                    <ul class="service-features">
+                        <li>Baseboards & ceiling fans</li>
+                        <li>Inside cabinets & appliances</li>
+                        <li>Window sills & blinds</li>
+                        <li>Complete sanitization</li>
+                    </ul>
+                    <a href="#contact" class="service-cta">Get Quote →</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📦</div>
+                    <h3>Move-In / Move-Out Cleaning</h3>
+                    <p>Start fresh or leave a lasting impression. Perfect cleaning for property transitions.</p>
+                    <ul class="service-features">
+                        <li>Empty or furnished properties</li>
+                        <li>All rooms deep cleaned</li>
+                        <li>Appliances inside & out</li>
+                        <li>Same-day service available</li>
+                    </ul>
+                    <a href="#contact" class="service-cta">Get Quote →</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🏗️</div>
+                    <h3>Post-Construction Cleaning</h3>
+                    <p>Turn your construction site into a move-in ready masterpiece.</p>
+                    <ul class="service-features">
+                        <li>Dust & debris removal</li>
+                        <li>Paint & adhesive cleanup</li>
+                        <li>Window & floor polishing</li>
+                        <li>Final walk-through ready</li>
+                    </ul>
+                    <a href="#contact" class="service-cta">Get Quote →</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">👔</div>
+                    <h3>Housekeeper Services</h3>
+                    <p>Your personal cleaning professional. Regular, reliable, remarkable results.</p>
+                    <ul class="service-features">
+                        <li>Customized cleaning plans</li>
+                        <li>Same cleaner every visit</li>
+                        <li>Trustworthy & background checked</li>
+                        <li>Weekly or bi-weekly service</li>
+                    </ul>
+                    <a href="#contact" class="service-cta">Get Quote →</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <h3>Home Organizer</h3>
+                    <p>Beyond cleaning—we create organized, functional spaces you'll love.</p>
+                    <ul class="service-features">
+                        <li>Closet & pantry organization</li>
+                        <li>Decluttering services</li>
+                        <li>Storage solutions</li>
+                        <li>Seasonal organization</li>
+                    </ul>
+                    <a href="#contact" class="service-cta">Get Quote →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-choose">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Contra Costa County Trusts Us</h2>
+                <p>We're not just another cleaning company. We're your cleaning partner.</p>
+            </div>
+            <div class="features-grid">
+                
+                <div class="feature">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Fully Licensed & Insured</h3>
+                    <p>Complete liability insurance coverage gives you peace of mind. Your property is protected with every clean.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Fast Response Time</h3>
+                    <p>Need cleaning urgently? We offer same-day and next-day service throughout Contra Costa County.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">💯</div>
+                    <h3>100% Satisfaction Guarantee</h3>
+                    <p>Not happy? We'll re-clean for free or refund your money. No questions asked. That's our promise.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="social-proof">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Clients Say</h2>
+                <p>Don't just take our word for it—hear from happy homeowners and business owners.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="stars">★★★★★</div>
+                    <p>"HERE 4 YOU transformed our home! After construction, the place was a disaster. They came in and made it absolutely spotless. I couldn't believe the difference. Highly recommend!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SM</div>
+                        <div class="author-info">
+                            <h4>Sarah Mitchell</h4>
+                            <p>Walnut Creek Homeowner</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="stars">★★★★★</div>
+                    <p>"We use them for our office building every week. Professional, reliable, and the team is always friendly. Our employees constantly compliment how clean everything looks!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JR</div>
+                        <div class="author-info">
+                            <h4>James Rodriguez</h4>
+                            <p>Business Owner, Concord</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="stars">★★★★★</div>
+                    <p>"The deep cleaning service was worth every penny! They cleaned places I didn't even know needed cleaning. My house has never looked—or smelled—better. Thank you!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">LT</div>
+                        <div class="author-info">
+                            <h4>Lisa Thompson</h4>
+                            <p>Pleasant Hill Resident</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <div class="urgency-text">⏰ Limited Time: Book This Week & Save 15%!</div>
+                <h2>Ready for a Spotlessly Clean Space?</h2>
+                <p>Join hundreds of satisfied customers in Contra Costa County.<br>Your dream clean is just one click away.</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        Get Your FREE Quote Now →
+                    </a>
+                    <a href="tel:5106001381" class="btn btn-secondary">
+                        📞 Call (510) 600-1381
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get Your Free Quote Today</h2>
+                <p>Tell us what you need, and we'll give you a transparent, no-obligation quote in minutes.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-details">
+                            <h3>Email Us</h3>
+                            <p><a href="mailto:Hereyoucleaningservice@gmail.com">Hereyoucleaningservice@gmail.com</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-details">
+                            <h3>Call or Text</h3>
+                            <p><a href="tel:5106001381">(510) 600-1381</a></p>
+                            <p style="margin-top: 5px; font-size: 14px;">Available 7 days a week</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h3>Service Area</h3>
+                            <p>Proudly serving all of<br><strong>Contra Costa County</strong></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">⏰</div>
+                        <div class="contact-details">
+                            <h3>Quick Response</h3>
+                            <p>We respond to all inquiries within 2 hours during business hours</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form id="quoteForm">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="John Smith">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="john@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="(510) 600-1381">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Needed *</label>
+                            <select id="service" name="service" required>
+                                <option value="">Select a service...</option>
+                                <option value="residential">Residential Cleaning</option>
+                                <option value="commercial">Commercial Cleaning</option>
+                                <option value="deep">Deep Cleaning</option>
+                                <option value="movein">Move-In/Move-Out</option>
+                                <option value="construction">Post-Construction</option>
+                                <option value="housekeeper">Housekeeper Service</option>
+                                <option value="organizer">Home Organizer</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="property">Property Type</label>
+                            <select id="property" name="property">
+                                <option value="">Select property type...</option>
+                                <option value="house">House</option>
+                                <option value="apartment">Apartment</option>
+                                <option value="condo">Condo</option>
+                                <option value="office">Office</option>
+                                <option value="commercial">Commercial Building</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Additional Details</label>
+                            <textarea id="message" name="message" placeholder="Tell us about your cleaning needs, property size, special requirements, preferred date, etc."></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            Get My FREE Quote →
+                        </button>
+                        <p style="text-align: center; margin-top: 15px; font-size: 14px; color: #64748b;">
+                            We respect your privacy. Your information is 100% secure.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>HERE 4 YOU</h3>
+                    <p style="color: #94a3b8; line-height: 1.8;">
+                        Professional cleaning services for homes and businesses throughout Contra Costa County. 
+                        We're here when you need us—guaranteed quality, every time.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="#services">Residential Cleaning</a></li>
+                        <li><a href="#services">Commercial Cleaning</a></li>
+                        <li><a href="#services">Deep Cleaning</a></li>
+                        <li><a href="#services">Move-In/Move-Out</a></li>
+                        <li><a href="#services">Post-Construction</a></li>
+                        <li><a href="#services">Housekeeper Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Get Quote</a></li>
+                        <li><a href="tel:5106001381">Call Now</a></li>
+                        <li><a href="mailto:Hereyoucleaningservice@gmail.com">Email Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Service Area</h3>
+                    <p style="color: #94a3b8; margin-bottom: 15px;">
+                        <strong style="color: white;">Contra Costa County</strong><br>
+                        Including: Concord, Walnut Creek, Richmond, Antioch, Pleasant Hill, and surrounding areas
+                    </p>
+                    <p style="color: #94a3b8;">
+                        📧 hereyoucleaningservice@gmail.com<br>
+                        📞 (510) 600-1381
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 HERE 4 YOU Cleaning Services. All rights reserved. | Fully Licensed & Insured</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/15106001381" class="fab" title="Chat on WhatsApp">
+        💬
+    </a>
+
+    <script>
+        // Smooth scrolling for anchor links (Mantido)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission handler (Mantido)
+        document.getElementById('quoteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Create email body
+            const emailBody = `
+New Quote Request from HERE 4 YOU Website
+
+Name: ${data.name}
+Email: ${data.email}
+Phone: ${data.phone}
+Service: ${data.service}
+Property Type: ${data.property}
+Message: ${data.message}
+            `.trim();
+            
+            // Create mailto link
+            const mailtoLink = `mailto:Hereyoucleaningservice@gmail.com?subject=New Quote Request from ${data.name}&body=${encodeURIComponent(emailBody)}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            alert('Thank you! Your quote request is being prepared. We\'ll contact you within 2 hours!');
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Add animation on scroll (Mantido)
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe service cards (Mantido)
+        document.querySelectorAll('.service-card, .feature, .testimonial').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+
+        // Add active state to header on scroll (Cores atualizadas)
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'linear-gradient(135deg, rgba(59, 82, 164, 0.98) 0%, rgba(42, 60, 122, 0.98) 100%)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, var(--primary-color) 0%, #2a3c7a 100%)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // Update phone number throughout the page (URL de telefone atualizada)
+        const actualPhone = '5106001381'; 
+        document.querySelectorAll('a[href="tel:5551234567"]').forEach(link => {
+             link.href = `tel:${actualPhone}`;
+        });
+        document.querySelectorAll('a[href="https://wa.me/15551234567"]').forEach(link => {
+             link.href = `https://wa.me/1${actualPhone}`;
+        });
+
+        // Track CTA button clicks (Mantido)
+        document.querySelectorAll('.btn-primary').forEach(button => {
+            button.addEventListener('click', function() {
+                console.log('CTA Button Clicked:', this.textContent);
+                // Add your analytics tracking code here
+                // Example: gtag('event', 'click', { 'event_category': 'CTA', 'event_label': this.textContent });
+            });
+        });
+    </script>
+</body>
+</html>
